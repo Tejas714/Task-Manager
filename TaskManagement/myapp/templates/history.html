@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<a href="{% url 'f' %}">DELETE ALL</a><br>
+<a href="{% url 'h' %}">RESTORE ALL</a><br><br>
+<table border="1px">
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Deadline</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        {% for i in k %}
+        
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.status}}</td>
+            <td>{{i.created}}</td>
+            <td>{{i.updated}}</td>
+            <td>{{i.deadline}}</td>
+            <td>
+            <a href="{% url 'g' i.id %}">RESTORE</a>&nbsp;|&nbsp;
+            <a href="{% url 'i' i.id %}">DELETE</a></td>
+        <br>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+    
+    
+
+{% endblock %}
